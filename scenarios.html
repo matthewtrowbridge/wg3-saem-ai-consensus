@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scenarios · WG3</title>
+<link rel="stylesheet" href="assets/site.css">
+</head><body>
+<header class="site"><div class="wrap">
+ <div class="brand"><b>WG3 · AI Education, Training & Competency Development</b><span>SAEM AI Consensus Conference · May 21, 2026 · Atlanta</span></div>
+ <nav>
+  <a href="index.html">Overview</a><a href="framework.html">Framework</a><a href="themes.html">Themes</a>
+  <a href="scenarios.html">Scenarios</a><a href="resources.html">Resources</a><a href="people.html">People</a>
+ </nav>
+</div></header>
+
+<main>
+<h1>Scenarios — 14 EM encounters where AI is already in the room</h1>
+<p style="max-width:780px;color:#334155">Carl Preiksaitis's working set. Filter by theme to see which scenarios teach a given competency.</p>
+
+<div id="legend" class="theme-legend"></div>
+
+<div class="card" style="margin-bottom:18px">
+ <b style="font-size:12px;color:#64748b;text-transform:uppercase;letter-spacing:.06em">Filter by theme</b>
+ <div id="filterRow" style="margin-top:8px"></div>
+</div>
+
+<div id="scnGrid" class="grid cols-2"></div>
+</main>
+
+<footer class="site"><div class="wrap"><div>WG3 working site · Draft for internal review</div><div>Last updated 2026-04-07</div></div></footer>
+<script src="assets/data.js"></script>
+<script src="assets/site.js"></script>
+<script>
+renderThemeLegend('#legend');
+let filter = null;
+function render(){
+ const list = filter===null ? WG3.scenarios : WG3.scenarios.filter(s=>s.scores[WG3.matrixThemes.indexOf(filter)]>=2);
+ document.getElementById('scnGrid').innerHTML = list.map(s=>{
+  const hits = s.scores.map((v,i)=>v>=2?WG3.matrixThemes[i]:null).filter(Boolean);
+  return `<div class="card" onclick="showScenarioDetail(${s.id})" style="cursor:pointer">
+   <div class="meta">Scenario ${s.id}</div><h3>${s.name}</h3>
+   <p style="color:#334155">${s.vig}</p>
+   <div>${hits.map(h=>`<span class="chip" data-tip="${WG3.themeTip(h).replace(/"/g,'&quot;')}">${h}</span>`).join('')}</div>
+  </div>`;
+ }).join('');
+}
+const btns = WG3.matrixThemes.map(c=>`<button class="chip tag" data-c="${c}" data-tip="${WG3.themeTip(c).replace(/"/g,'&quot;')}" style="border:0;font:inherit">${c}</button>`).join('');
+document.getElementById('filterRow').innerHTML = `<button class="chip ok" data-c="" style="border:0;font:inherit">All</button> ` + btns;
+document.getElementById('filterRow').onclick = e=>{
+ if(e.target.dataset.c===undefined) return;
+ filter = e.target.dataset.c || null; render();
+};
+render();
+</script>
+</body></html>

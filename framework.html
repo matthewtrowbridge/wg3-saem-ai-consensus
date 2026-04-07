@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Framework · WG3</title>
+<link rel="stylesheet" href="assets/site.css">
+</head><body>
+<header class="site"><div class="wrap">
+ <div class="brand"><b>WG3 · AI Education, Training & Competency Development</b><span>SAEM AI Consensus Conference · May 21, 2026 · Atlanta</span></div>
+ <nav>
+  <a href="index.html">Overview</a><a href="framework.html">Framework</a><a href="themes.html">Themes</a>
+  <a href="scenarios.html">Scenarios</a><a href="resources.html">Resources</a><a href="people.html">People</a>
+ </nav>
+</div></header>
+
+<main>
+<div class="eyebrow" style="font-size:11px;color:#64748b;letter-spacing:.12em;text-transform:uppercase">Straw-man · Provisional</div>
+<h1>Scenarios × Themes — discussion framework</h1>
+<p style="max-width:780px;color:#334155">Each column is a theme (or subtheme) from Makutonin's 2025 nominal group. Each row is one of Carl's 14 clinical scenarios. Scores are a provisional 0–3 strength estimate — <b>meant to be argued with</b>, not ratified. Hover any theme code for its full definition; click a row for the scenario's theme mapping in detail.</p>
+
+<div id="legend" class="theme-legend"></div>
+
+<div class="grid cols-4" style="margin-bottom:18px">
+ <div class="card"><div class="meta">Score</div><h3>0 · Not relevant</h3><p style="font-size:12px;color:#64748b">Theme doesn't meaningfully apply to this scenario.</p></div>
+ <div class="card"><div class="meta">Score</div><h3>1 · Tangential</h3><p style="font-size:12px;color:#64748b">Weakly relevant; could be mentioned in passing.</p></div>
+ <div class="card"><div class="meta">Score</div><h3>2 · Clearly relevant</h3><p style="font-size:12px;color:#64748b">Competency is clearly implicated by the scenario.</p></div>
+ <div class="card"><div class="meta">Score</div><h3>3 · Central</h3><p style="font-size:12px;color:#64748b">Core competency this scenario is designed to teach.</p></div>
+</div>
+
+<div class="matrix-wrap"><div id="matrix"></div></div>
+
+<h2 id="gaps">Candidate gap themes</h2>
+<p style="max-width:780px;color:#334155">Scenarios that don't land cleanly on an existing theme — the places where Makutonin's set may need to grow. Each gap theme below names the scenarios that surfaced it.</p>
+<div class="grid cols-2" id="gapGrid"></div>
+
+<h2>Discussion prompts for the WG3 meeting</h2>
+<div class="card">
+ <ol>
+  <li>Do the existing four themes still cover the territory once stress-tested against 14 concrete EM scenarios? Where do they strain?</li>
+  <li>Which of the candidate new themes deserve first-class status vs. subtheme status vs. being folded into existing themes?</li>
+  <li>Which scenarios are most urgent to teach now, vs. which can wait for v2 of the framework?</li>
+  <li>Does "communicating about AI" need to split into patient-facing and team-facing competencies?</li>
+  <li>What's missing entirely? Ambient scribing, patient-brought-AI, and metacognition came up on the kickoff call but aren't on Carl's 14.</li>
+  <li>Does the academic / community persona dimension change the competency weights for any scenario?</li>
+  <li>Where does the framework overlap with WG4 (Training) — and what's the explicit hand-off?</li>
+ </ol>
+</div>
+</main>
+
+<footer class="site"><div class="wrap"><div>WG3 working site · Draft for internal review</div><div>Last updated 2026-04-07</div></div></footer>
+<script src="assets/data.js"></script>
+<script src="assets/site.js"></script>
+<script>
+ renderThemeLegend('#legend');
+ renderMatrix('#matrix');
+ // gap cards
+ const gh = WG3.gaps.map(g=>`<div class="card" style="background:#fffbeb;border-color:#fde68a">
+  <h3>${g.name}</h3>
+  <p style="color:#334155">${g.why}</p>
+  <div>${g.scenarios.map(s=>{const sc=WG3.scenarios.find(x=>x.id===s);return `<span class="chip" data-tip="${sc.name}: ${sc.vig.replace(/"/g,'&quot;')}">S${s}</span>`}).join('')}</div>
+ </div>`).join('');
+ document.getElementById('gapGrid').innerHTML = gh;
+</script>
+</body></html>

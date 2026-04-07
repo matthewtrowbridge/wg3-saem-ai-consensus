@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Themes · WG3</title>
+<link rel="stylesheet" href="assets/site.css">
+</head><body>
+<header class="site"><div class="wrap">
+ <div class="brand"><b>WG3 · AI Education, Training & Competency Development</b><span>SAEM AI Consensus Conference · May 21, 2026 · Atlanta</span></div>
+ <nav>
+  <a href="index.html">Overview</a><a href="framework.html">Framework</a><a href="themes.html">Themes</a>
+  <a href="scenarios.html">Scenarios</a><a href="resources.html">Resources</a><a href="people.html">People</a>
+ </nav>
+</div></header>
+
+<main>
+<h1>Themes — Makutonin prior nominal group + candidate gaps</h1>
+<p style="max-width:780px;color:#334155">Four parent themes, ten leaf subthemes, seven candidate additions. Starting point, not a verdict.</p>
+
+<div id="themeGrid" class="grid cols-2"></div>
+
+<h2>Candidate new themes</h2>
+<div id="gapGrid" class="grid cols-2"></div>
+</main>
+
+<footer class="site"><div class="wrap"><div>WG3 working site · Draft for internal review</div><div>Last updated 2026-04-07</div></div></footer>
+<script src="assets/data.js"></script>
+<script src="assets/site.js"></script>
+<script>
+const parents = WG3.themes.filter(t=>t.code.length===2);
+const leavesFor = p => WG3.themes.filter(t=>t.code.startsWith(p.code)&&t.code!==p.code);
+document.getElementById('themeGrid').innerHTML = parents.map(p=>{
+ const leaves = leavesFor(p);
+ const body = leaves.length
+  ? leaves.map(l=>`<div style="padding:8px 0;border-top:1px solid #e2e8f0"><b style="color:#1f4e79">${l.code}</b> · <b>${l.name}</b><br><small style="color:#64748b">${l.def}</small></div>`).join('')
+  : `<div style="padding:8px 0;border-top:1px solid #e2e8f0"><small style="color:#64748b">No subthemes in the prior set — candidate for further breakdown.</small></div>`;
+ return `<div class="card"><div class="meta">${p.cluster}</div><h3>${p.code} · ${p.name}</h3><p style="color:#334155">${p.def}</p>${body}</div>`;
+}).join('');
+
+document.getElementById('gapGrid').innerHTML = WG3.gaps.map(g=>`<div class="card" style="background:#fffbeb;border-color:#fde68a">
+ <h3>${g.name}</h3><p style="color:#334155">${g.why}</p>
+ <div><small style="color:#64748b">Surfaced by:</small> ${g.scenarios.map(s=>`<span class="chip">S${s}</span>`).join('')}</div>
+</div>`).join('');
+</script>
+</body></html>
