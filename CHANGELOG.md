@@ -1,0 +1,12 @@
+# Changelog
+
+Running log of changes to the WG3 working site. Add an entry for any non-trivial change (content addition, structural change, new page, copy revision).
+
+Format: most recent first. Each entry: `YYYY-MM-DD — short description (commit hash if applicable).`
+
+## 2026-04-07
+
+- Added `CLAUDE.md` (project context for future Claude sessions) and this `CHANGELOG.md`. Fixed README drift: noted `grant.html`, corrected repo name to `wg3-saem-ai-consensus`, pointed deployment section at `deploy.sh`.
+- Added `grant.html` — AHRQ R13 grant overview page with the three-aim structure and WG3's role in Aim 3. Added "The Grant" to the nav bar across all pages. (`e532bff`)
+- Added profile links to all five names on `people.html` (Carl Preiksaitis, Christian Rose, Matt Trowbridge, R. Andrew Taylor, Michael Makutonin). Updated credentials: Andrew Taylor to "R. Andrew Taylor, MD, MHS"; Matt Trowbridge to "MD, MPH". (`963786e`)
+- Initial deploy of the WG3 working site to GitHub Pages at https://matthewtrowbridge.github.io/wg3-saem-ai-consensus/. Includes landing page, scenarios x themes interactive framework, theme reference, scenarios browser, consolidated resources page, and people roster. Single source of truth in `assets/data.js`. (`56a755e`)

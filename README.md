@@ -7,6 +7,7 @@ A small static site for the SAEM AI Consensus 2026 Working Group 3 (AI Education
 ```
 WG3_Website/
 ├── index.html          Landing page — conference context, WG3 charge, timeline
+├── grant.html          AHRQ R13 grant overview, three aims, WG3's role in Aim 3
 ├── framework.html      Interactive scenarios × themes matrix (the main artifact)
 ├── themes.html         Full theme definitions + candidate gap themes
 ├── scenarios.html      Browsable scenarios, filterable by theme
@@ -16,6 +17,10 @@ WG3_Website/
 │   ├── site.css        Shared styles
 │   ├── site.js         Shared helpers (legend, matrix, detail modal)
 │   └── data.js         Single source of truth for themes / scenarios / gaps
+├── deploy.sh           One-shot deploy script (see DEPLOY.md)
+├── CLAUDE.md           Project context for Claude / future maintainers
+├── CHANGELOG.md        Running log of site changes
+├── DEPLOY.md           Step-by-step deploy and collaborator setup
 └── README.md
 ```
 
@@ -33,25 +38,23 @@ python3 -m http.server 8080
 
 Or just double-click `index.html` — most pages work from `file://` too.
 
-## Recommended deployment: GitHub Pages
+## Deployment: GitHub Pages
 
-GitHub Pages fits this collaboration well: free, version-controlled, reviewable, reversible, and sophisticated collaborators can edit pages directly in the GitHub web UI.
+The site is deployed at **https://matthewtrowbridge.github.io/wg3-saem-ai-consensus/** from the `matthewtrowbridge/wg3-saem-ai-consensus` public repo. GitHub Pages fits this collaboration well: free, version-controlled, reviewable, reversible, and sophisticated collaborators can edit pages directly in the GitHub web UI.
 
-**Setup (one time, ~5 minutes):**
+**Initial setup is automated by `deploy.sh`.** See `DEPLOY.md` for the step-by-step (install GitHub CLI, authenticate, run the script). The script creates the repo, pushes the code, and enables Pages in one shot.
 
-1. Create a new GitHub repo. Private is fine — Pages works on private repos with a paid plan, or make it public if we're comfortable showing the draft.
-2. Push the contents of this folder to the repo:
-   ```
-   git init
-   git add .
-   git commit -m "Initial WG3 working site"
-   git branch -M main
-   git remote add origin https://github.com/<org>/wg3-site.git
-   git push -u origin main
-   ```
-3. In the repo: **Settings → Pages → Source → Deploy from a branch → main / (root)**.
-4. URL will be `https://<org>.github.io/wg3-site/` within ~1 minute.
-5. Optional: add a custom domain (`wg3.saem-consensus.org` etc.) via Pages settings.
+**Updating the live site after the initial deploy:**
+
+```
+git add <files>
+git commit -m "describe what changed"
+git push
+```
+
+Pages re-publishes within ~30-90 seconds. If you only edit `assets/data.js`, every page that uses scenarios/themes/scores updates automatically.
+
+Optional: add a custom domain via **Settings → Pages → Custom domain**.
 
 **How collaborators contribute without touching a terminal:**
 
