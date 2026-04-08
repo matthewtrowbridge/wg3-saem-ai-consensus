@@ -4,6 +4,10 @@ Running log of changes to the WG3 working site. Add an entry for any non-trivial
 
 Format: most recent first. Each entry: `YYYY-MM-DD — short description (commit hash if applicable).`
 
+## 2026-04-08
+
+- Added a secondary "AHRQ R13 overview" button inside the WG3's Charge card on the landing page. Redundant with the header nav link by design, so readers scanning the Charge card have a direct path into `grant.html` without scrolling back up.
+
 ## 2026-04-07
 
 - Reworked the framework matrix column headers. Added a cluster-grouped header row above the existing T-codes (Communicating · Use cases · Interaction · Medico-legal), with each cluster name centered across its spanned subtheme columns and tinted with a distinct pale cluster color (purple / mint / cream / rose). Added short 1-2 word labels under each T-code (e.g., T2b -> "Limitations", T3c -> "Appraising output"), a 2px slate divider between clusters running top-to-bottom, and a `short` field on each leaf subtheme in `data.js`. Dropped the dead `th.theme` rotation rule and `position:sticky` from `thead th` (incompatible with two-row header and not needed on a 14-row matrix). Design spec in `docs/superpowers/specs/2026-04-07-framework-matrix-cluster-headers-design.md`.
