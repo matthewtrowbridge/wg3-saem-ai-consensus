@@ -32,16 +32,61 @@
   const el = document.querySelector(sel); if(!el) return;
   const gapByS = {};
   WG3.gaps.forEach(g=>g.scenarios.forEach(s=>(gapByS[s]=gapByS[s]||[]).push(g.name)));
-  let h = '<table class="matrix"><thead><tr><th>#</th><th>Scenario</th>';
-  WG3.matrixThemes.forEach(code=>{
-   h += `<th class="theme"><span data-tip="${esc(WG3.themeTip(code))}">${code}</span></th>`;
+
+  // Cluster name -> short CSS key used in class names (c-comm-hd, c-use-sub, etc.)
+  const clusterKey = {
+   "Communicating":"comm",
+   "Use cases":"use",
+   "Interaction":"int",
+   "Medico-legal":"med"
+  };
+
+  // Walk matrixThemes once to build (a) cluster header groups for the top row
+  // and (b) the set of column indices that begin a new cluster (for div-left).
+  const groups = []; // [{name, key, count}, ...]
+  const firstInCluster = new Set();
+  let prevCluster = null;
+  WG3.matrixThemes.forEach((code,i)=>{
+   const t = WG3.themes.find(x=>x.code===code);
+   if(t.cluster !== prevCluster){
+    groups.push({name:t.cluster, key:clusterKey[t.cluster], count:1});
+    firstInCluster.add(i);
+    prevCluster = t.cluster;
+   } else {
+    groups[groups.length-1].count++;
+   }
   });
-  h += '<th>Σ</th><th>Gap?</th></tr></thead><tbody>';
+
+  // THEAD — two rows. Row 1: corners with rowspan=2, cluster names with colspan.
+  let h = '<table class="matrix"><thead><tr>';
+  h += '<th rowspan="2" class="corner">#</th>';
+  h += '<th rowspan="2" class="corner">Scenario</th>';
+  groups.forEach(g=>{
+   h += `<th colspan="${g.count}" class="c-${g.key}-hd">${g.name}</th>`;
+  });
+  h += '<th rowspan="2" class="corner">Σ</th>';
+  h += '<th rowspan="2" class="corner">Gap?</th>';
+  h += '</tr><tr>';
+
+  // Row 2: sub-theme cells with T-code + short label, pale cluster background
+  WG3.matrixThemes.forEach((code,i)=>{
+   const t = WG3.themes.find(x=>x.code===code);
+   const key = clusterKey[t.cluster];
+   const divL = (i>0 && firstInCluster.has(i)) ? ' div-left' : '';
+   h += `<th class="sub c-${key}-sub${divL}">`;
+   h += `<span class="code" data-tip="${esc(WG3.themeTip(code))}">${code}</span>`;
+   h += `<span class="lbl">${esc(t.short||'')}</span>`;
+   h += '</th>';
+  });
+  h += '</tr></thead><tbody>';
+
+  // TBODY — score cells pick up the same div-left on cluster boundaries
   WG3.scenarios.forEach(s=>{
    const sum = s.scores.reduce((a,b)=>a+b,0);
    h += `<tr class="row" onclick="showScenarioDetail(${s.id})"><td>${s.id}</td><td><b>${s.name}</b><br><small style="color:#64748b">${s.vig}</small></td>`;
    s.scores.forEach((v,i)=>{
-    h += `<td class="score s${v}" data-tip="${esc(WG3.themeTip(WG3.matrixThemes[i]))}">${v||''}</td>`;
+    const divL = (i>0 && firstInCluster.has(i)) ? ' div-left' : '';
+    h += `<td class="score s${v}${divL}" data-tip="${esc(WG3.themeTip(WG3.matrixThemes[i]))}">${v||''}</td>`;
    });
    const g = (gapByS[s.id]||[]).map(x=>`<span class="chip gap" data-tip="${esc(x)}">gap</span>`).join('');
    h += `<td><b>${sum}</b></td><td>${g}</td></tr>`;

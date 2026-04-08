@@ -74,8 +74,26 @@ main{max-width:var(--maxw);margin:0 auto;padding:28px 24px 80px}
 .matrix-wrap{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:0;overflow:auto;box-shadow:var(--shadow)}
 table.matrix{border-collapse:collapse;width:100%;font-size:12px}
 table.matrix th,table.matrix td{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:middle}
-table.matrix thead th{background:#1f3864;color:#fff;font-weight:600;position:sticky;top:0}
-table.matrix th.theme{writing-mode:vertical-rl;transform:rotate(180deg);min-width:34px;text-align:center;padding:10px 4px}
+table.matrix thead th{background:#1f3864;color:#fff;font-weight:600}
+table.matrix th.corner{background:#1f3864;color:#fff;text-align:center}
+
+/* Cluster header row — strong tint, cluster-colored text, centered across spanned subthemes */
+table.matrix th.c-comm-hd{background:#e9d5ff;color:#581c87;border-bottom:2px solid #8b5cf6;text-align:center;font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;padding:8px 4px}
+table.matrix th.c-use-hd{background:#a7f3d0;color:#064e3b;border-bottom:2px solid #10b981;text-align:center;font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;padding:8px 4px}
+table.matrix th.c-int-hd{background:#fde68a;color:#78350f;border-bottom:2px solid #f59e0b;text-align:center;font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;padding:8px 4px}
+table.matrix th.c-med-hd{background:#fecaca;color:#7f1d1d;border-bottom:2px solid #ef4444;text-align:center;font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;padding:8px 4px}
+
+/* Sub row — T-code + short label cells, pale cluster backgrounds */
+table.matrix th.sub{min-width:62px;text-align:center;padding:6px 4px 7px}
+table.matrix th.sub.c-comm-sub{background:#f5f3ff}
+table.matrix th.sub.c-use-sub{background:#ecfdf5}
+table.matrix th.sub.c-int-sub{background:#fffbeb}
+table.matrix th.sub.c-med-sub{background:#fef2f2}
+table.matrix th.sub .code{display:block;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;font-weight:700;color:#1f3864;letter-spacing:.02em}
+table.matrix th.sub .lbl{display:block;font-family:-apple-system,system-ui,sans-serif;font-size:10.5px;font-weight:600;color:#0f172a;margin-top:2px;line-height:1.2;text-transform:none;letter-spacing:0;white-space:normal}
+
+/* Vertical divider between clusters (applies to thead and tbody cells) */
+table.matrix th.div-left,table.matrix td.div-left{border-left:2px solid #94a3b8}
 table.matrix td.score{text-align:center;font-weight:600;cursor:pointer;width:36px}
 .s0{background:#fff;color:#cbd5e1}.s1{background:#eaf2fb}.s2{background:#bdd7ee}.s3{background:#1f4e79;color:#fff}
 table.matrix tr.row{cursor:pointer}
