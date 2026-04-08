@@ -77,6 +77,24 @@ For the commit author, the deploy script and prior commits use:
 - Changing the deploy target away from GitHub Pages
 - Touching `data.js` scores without confirming the source (these are straw-man until WG3 ratifies)
 
+## Source material copy policy
+
+The `docs/source-materials/` folder holds durable copies of the source documents that the site draws on, so that a clone, fork, or future org migration carries the supporting material with it — not just the rendered HTML. Because this repo is public, the policy is:
+
+- **Safe to copy without asking:**
+  - Anything Matt Trowbridge authored from scratch (evidence brief summaries, synthesis docs, landscape writeups, meeting notes that are Matt's alone).
+  - Public links — just link, don't transcribe or mirror paywalled content.
+- **Ask the author first, in writing, before committing:**
+  - Andrew Taylor's AHRQ R13 grant materials (aims, project summary, conference plan narrative, any section derived from the original grant). Budget and any pre-publication sections are excluded regardless of other permissions.
+  - Michael Makutonin's 2025 nominal group work (Google Doc content, Slack notes, prior drafts).
+  - Anything that quotes another working group member candidly, or that names individuals in a way they haven't consented to publicly.
+- **Never commit:**
+  - Third-party copyrighted PDFs (published papers behind paywalls) — link to PubMed, publisher pages, or preprint servers instead.
+  - Slack exports that contain identifying detail beyond what's already on the public site.
+  - AHRQ R13 budget or any personnel cost detail.
+
+When in doubt, default to linking rather than copying, and default to asking rather than assuming consent.
+
 ## Parent context
 
 This folder lives inside `01 - Working Group Documents/` under the broader SAEM AI Consensus 2026 project. Sibling folders that may be relevant when iterating on the site:
