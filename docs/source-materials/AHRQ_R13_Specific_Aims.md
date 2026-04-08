@@ -1,0 +1,16 @@
+# AHRQ R13 Grant — Specific Aims
+
+*Source: Google Drive > AHRQ Submission > Proposal*
+*Google Doc ID: 1IYPDAqpJEkBIBXeyd_25MH7BOPsdpR77sCfzD94tiSo*
+
+---
+
+**Aim 1: Develop a shared multi-stakeholder vision and conceptual framework for AI-driven emergency care.** Through evidence-informed keynotes, moderated interdisciplinary panels, and interactive breakout sessions employing structured consensus-building techniques (e.g., Nominal Group Technique), participants from diverse stakeholder groups will collaboratively explore the transformative potential of artificial intelligence in emergency medicine. This process will facilitate consensus on definitions, scope, and key opportunities and challenges for integrating AI into emergency care, clarifying how advancements in AI and human-AI collaboration can reshape clinical practice, operational efficiency, patient experiences, and health care delivery. The conference's consensus-driven dialogue will yield a unified vision and foundational understanding of "AI in Emergency Medicine," ensuring all stakeholders share a common language and goals for future innovation.
+
+**Aim 2: Establish a rigorous, actionable 10-year research agenda for AI in emergency medicine.** Using a modified Delphi process, panels of experts representing core subtopics — clinical decision support, operational management, AI infrastructure, training and education, human-AI interactions, and ethical and societal implications — will identify and prioritize key research questions. The panel will systematically rate and refine research priorities in successive rounds. Conference participants will then refine and ratify these priorities through structured group discussions and plenary consensus voting, producing a finalized research roadmap. The resulting agenda will specify high-priority research areas, timeline milestones, necessary funding pathways, and patient-centered outcomes for the next decade, anchoring future investigations in areas of greatest impact.
+
+**Aim 3: Identify critical educational and competency gaps in AI for emergency care providers.** Employing a structured content analysis of conference outputs and participant interactions, we will conduct a comprehensive educational needs assessment. This analysis will pinpoint foundational knowledge gaps and emerging competencies that emergency medicine professionals must acquire to effectively and ethically integrate AI into clinical practice. The resulting insights will guide future educational initiatives, curricula development, and continuing professional education programs in AI literacy, human-computer interaction, and data-informed clinical decision-making.
+
+---
+
+**Impact:** The 2026 SAEM Consensus Conference represents an ambitious, innovative effort to define a national research and educational agenda on AI in emergency medicine. Anticipated outcomes include publication of foundational white papers, delineation of critical knowledge gaps for future investigation, and development of consensus-informed strategies to promote the ethical, equitable, and effective integration of AI technologies in emergency medicine.
