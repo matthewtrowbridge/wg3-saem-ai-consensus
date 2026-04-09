@@ -1,8 +1,6 @@
-# AHRQ R13 Grant — Conference Plan (Updated)
+# AHRQ R13 Grant — Conference Plan
 
-*Source: Google Drive > AHRQ Submission > Proposal > CONFERENCE PLAN UPDATE*
-*Google Doc ID: 1UhO-Id2KNQud2NB_2J_zzI8t3yGuC7TFB8fhvhreg4w*
-*Note: This is Andrew Taylor's original R13 grant proposal to AHRQ. It describes the full rationale, methodology, and planned approach for the consensus conference.*
+Conference Plan overview from the AHRQ R13 conference grant "Artificial Intelligence and Emergency Medicine: Technology, Training, Self, and Society" (PIs: R. Andrew Taylor, MD, MHS — UVA; Jeremiah Hinson, MD — Johns Hopkins). This page summarizes the section structure and the key facts that appear in the grant narrative.
 
 ---
 
@@ -35,5 +33,3 @@ Aim 3 maps directly to WG3's work: "Identify critical educational and competency
 - Foundational knowledge gaps and emerging competencies
 - Future educational initiatives, curricula development, and CPE programs
 - AI literacy, human-computer interaction, and data-informed clinical decision-making
-
-The full grant text is available in Google Drive at the link above.

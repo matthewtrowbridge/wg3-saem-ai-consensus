@@ -1,7 +1,6 @@
 # AHRQ R13 Grant — Specific Aims
 
-*Source: Google Drive > AHRQ Submission > Proposal*
-*Google Doc ID: 1IYPDAqpJEkBIBXeyd_25MH7BOPsdpR77sCfzD94tiSo*
+Specific Aims from the AHRQ R13 conference grant "Artificial Intelligence and Emergency Medicine: Technology, Training, Self, and Society" (PIs: R. Andrew Taylor, MD, MHS — UVA; Jeremiah Hinson, MD — Johns Hopkins).
 
 ---
 

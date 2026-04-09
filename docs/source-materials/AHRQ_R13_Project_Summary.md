@@ -1,7 +1,6 @@
 # AHRQ R13 Grant — Project Summary / Abstract
 
-*Source: Google Drive > AHRQ Submission > Proposal*
-*Google Doc ID: 1lJjlbU8MgIJaXW7hlxmGi76lNNG-JRPpYgOYh-zf1P0*
+Project Summary / Abstract from the AHRQ R13 conference grant "Artificial Intelligence and Emergency Medicine: Technology, Training, Self, and Society" (PIs: R. Andrew Taylor, MD, MHS — UVA; Jeremiah Hinson, MD — Johns Hopkins).
 
 ---
 
