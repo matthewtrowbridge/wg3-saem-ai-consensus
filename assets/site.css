@@ -109,6 +109,11 @@ footer.site .wrap{max-width:var(--maxw);margin:0 auto;padding:24px;font-size:12p
 .timeline .item{margin-bottom:14px;position:relative}
 .timeline .item::before{content:'';position:absolute;left:-25px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
 .timeline .item.done::before{background:var(--ok)}
+.timeline .item.current::before{background:var(--accent);box-shadow:0 0 0 4px rgba(31,78,121,.2)}
+.timeline .item.next::before{background:var(--paper);border:2.5px solid var(--accent)}
+.timeline .item.upcoming::before{background:var(--line)}
+.timeline .item.done{opacity:.55}
+.timeline .item.current .title{color:var(--accent)}
 .timeline .item .date{font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em}
 .timeline .item .title{font-weight:600}
 

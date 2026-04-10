@@ -117,5 +117,69 @@
   </div>`;
  };
 
+ // Timeline renderer — auto-computes done/current/next/upcoming from dates
+ window.renderTimeline = function(sel, opts){
+  var el = document.querySelector(sel);
+  if(!el || !WG3 || !WG3.milestones) return;
+  var d = new Date(),
+      today = d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+  var items = WG3.milestones;
+  if(opts && opts.filter) items = items.filter(opts.filter);
+
+  var statuses = items.map(function(m){
+   if(m.done) return 'done';
+   var end = m.end || m.date;
+   if(today > end) return 'done';
+   if(today >= m.date && today <= end) return 'current';
+   return 'upcoming';
+  });
+  // If nothing is actively current, promote first upcoming to "next"
+  if(statuses.indexOf('current') === -1){
+   var idx = statuses.indexOf('upcoming');
+   if(idx >= 0) statuses[idx] = 'next';
+  }
+
+  el.innerHTML = items.map(function(m, i){
+   return '<div class="item '+statuses[i]+'">'
+    +'<div class="date">'+esc(m.label)+'</div>'
+    +'<div class="title">'+esc(m.title)+'</div>'
+    +'<div>'+m.desc+'</div></div>';
+  }).join('');
+ };
+
+ // Auto-generated status line for the timeline callout
+ window.renderTimelineStatus = function(sel){
+  var el = document.querySelector(sel);
+  if(!el || !WG3 || !WG3.milestones) return;
+  var d = new Date(),
+      today = d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+
+  var current = WG3.milestones.filter(function(m){
+   if(m.done) return false;
+   var end = m.end || m.date;
+   return today >= m.date && today <= end;
+  });
+  var upcoming = WG3.milestones.filter(function(m){
+   if(m.done) return false;
+   return today < m.date;
+  });
+  var doneCount = WG3.milestones.filter(function(m){
+   if(m.done) return true;
+   var end = m.end || m.date;
+   return today > end;
+  }).length;
+  var total = WG3.milestones.length;
+
+  var h = '';
+  if(current.length){
+   h += '<b>Now:</b> '+current.map(function(m){return m.title}).join(' · ')+'. ';
+  }
+  if(upcoming.length){
+   h += '<b>Next:</b> '+upcoming[0].title+' ('+upcoming[0].label+').';
+  }
+  h += ' <small style="color:var(--mute)">'+doneCount+' of '+total+' milestones complete.</small>';
+  el.innerHTML = h;
+ };
+
  function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 })();

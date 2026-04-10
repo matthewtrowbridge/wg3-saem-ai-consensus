@@ -116,14 +116,7 @@
 </div>
 
 <h2>Timeline</h2>
-<div class="timeline">
- <div class="item"><div class="date">Apr 15 · 3pm ET</div><div class="title">Full group meeting — align on approach</div><div>All five WGs. WG3 reviews this proposal and reacts.</div></div>
- <div class="item"><div class="date">Apr 16–23</div><div class="title">Asynchronous survey</div><div>WG3 members complete structured survey. ~30 min.</div></div>
- <div class="item"><div class="date">Apr 24–25</div><div class="title">Synchronous debrief</div><div>1-hour WG3-only call. Review results, make decisions.</div></div>
- <div class="item"><div class="date">Apr 26 – May 5</div><div class="title">Revised framework + summary draft</div><div>Matt updates site; co-leads draft 2-page summary.</div></div>
- <div class="item"><div class="date">May 12</div><div class="title">2-page summaries due</div><div>WG3 deliverable into the conference program book.</div></div>
- <div class="item"><div class="date">May 21</div><div class="title">Conference day</div><div>Live refinement of a stable framework, not a cold start.</div></div>
-</div>
+<div id="procTimeline" class="timeline"></div>
 
 <p style="max-width:780px;color:#334155"><b>Total time ask per WG3 member: ~2.5 hours across 6 weeks.</b></p>
 
@@ -147,4 +140,5 @@
 
 <footer class="site"><div class="wrap"><div>WG3 working site · Draft for internal review</div><div>Last updated 2026-04-10</div></div></footer>
 <script src="assets/data.js"></script><script src="assets/site.js"></script>
+<script>renderTimeline('#procTimeline',{filter:function(m){return m.process}});</script>
 </body></html>
